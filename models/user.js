@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const crypto = require('crypto')
-const uuidv1 = require('uuid/v1')
+// const uuidv1 = require('uuid/v1')
 bcrypt = require('bcrypt')
     SALT_WORK_FACTOR = 10;
 
