@@ -35,7 +35,7 @@ exports.signin = (req,res)=>{
                 error:'Email and password dont match'
             })
         }
-        const token = jwt.sign({_id:user._id},process.env.JWT_SECRET)
+        const token = jwt.sign({_id:user._id},'randomstuff')
         res.cookie('t',token,{expire:new Date()+9999})
         const{_id,name,email,role} = user
         return res.json({token,user:{_id,name,email,email,role}})
@@ -54,7 +54,7 @@ exports.signout = (req,res)=>{
 }
 
 exports.requireSignIn = expressJwt({
-    secret:process.env.JWT_SECRET,
+    secret:'randomstuff',
     userProperty:'auth'
 
 
