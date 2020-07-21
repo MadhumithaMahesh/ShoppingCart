@@ -7,7 +7,7 @@ app.use(compression());
 app.use(express.static(path.join(__dirname, 'jumbocartfrontend/build')));
  
 app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'jumbocartfrontend','build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'jumbocartfrontend/build', 'index.html'));
 });
  
 const PORT = process.env.PORT || 3000;

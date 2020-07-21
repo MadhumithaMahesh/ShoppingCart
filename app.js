@@ -7,12 +7,10 @@ const expressValidator = require('express-validator')
 const cors = require('cors')
 require('dotenv').config()
 const app = express()
-mongoose.connect('mongodb://127.0.0.1:27017',{useNewUrlParser:true,useCreateIndex:true}).then(()=>
+mongoose.connect('mongodb://127.0.0.1:27017',{useUnifiedTopology: true,useNewUrlParser:true,useCreateIndex:true}).then(()=>
 {
     console.log('connected to DB')
-})
-mongoose.connection.on('error',err=>
-{
+}).catch(err=>{
     console.log('Couldnt conect to DB')
 })
 
