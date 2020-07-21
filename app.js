@@ -39,7 +39,7 @@ app.use('/api',orderRoutes)
 //     res.send('hello node')
 // })git 
 const port = process.env.PORT||8000
-app.listen(port, '0.0.0.0',()=>
+app.listen(port,()=>
 {
     console.log('server is up')
 })
