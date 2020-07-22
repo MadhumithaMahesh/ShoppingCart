@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
+const compression = require('compression');
+const path = require('path');
 const cookieParser = require('cookie-parser')
 const expressValidator = require('express-validator')
 const cors = require('cors')
@@ -26,7 +28,8 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 // app.use(expressValidator())
 app.use(cors())
-
+app.use(compression());
+app.use(express.static(path.join(__dirname, 'jumbocartfrontend/build')));
 
  app.use('/api',userRoutes)
 app.use('/api',categoryRoutes)
@@ -38,6 +41,10 @@ app.use('/api',orderRoutes)
 // {
 //     res.send('hello node')
 // })git 
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'jumbocartfrontend/build', 'index.html'));
+});
+
 const port = process.env.PORT||8000
 app.listen(port,()=>
 {
