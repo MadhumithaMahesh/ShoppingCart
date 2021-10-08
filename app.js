@@ -48,5 +48,5 @@ app.get('*', function(req, res) {
 const port = process.env.PORT||8000
 app.listen(port,()=>
 {
-    console.log('server is up')
+    console.log('server is up and running')
 })
