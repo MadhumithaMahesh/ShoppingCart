@@ -1,4 +1,3 @@
-
 import API from '../configure'
 export const signup = (user)=>
     {

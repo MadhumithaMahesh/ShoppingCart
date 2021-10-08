@@ -9,11 +9,11 @@ const expressValidator = require('express-validator')
 const cors = require('cors')
 require('dotenv').config()
 const app = express()
-mongoose.connect(process.env.MONGODB_URI ||'mongodb://127.0.0.1:27017/test',{useUnifiedTopology: true,useNewUrlParser:true,useCreateIndex:true}).then(()=>
+mongoose.connect(process.env.MONGODB_URI ||'mongodb://127.0.0.1:27017',{useUnifiedTopology: true,useNewUrlParser:true,useCreateIndex:true}).then(()=>
 {
     console.log('connected to DB')
 }).catch(err=>{
-    console.log('Couldnt conect to DB')
+    console.log(err)
 })
 
 const userRoutes = require('./routes/user')

@@ -48,4 +48,5 @@ exports.paymentMethod = (req,res)=>{
             }
         }
     );
+    return newTransaction
 };
