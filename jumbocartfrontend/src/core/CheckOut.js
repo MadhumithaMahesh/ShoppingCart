@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getProducts, getBraintreeClientToken, processPayment, createOrder } from './apiCore';
-import { emptyCart } from './cartHelpers';
+import { cartEmpty } from './cartHelpers';
 import Card from './Card';
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom';
@@ -94,7 +94,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
 
                         createOrder(userId, token, createOrderData)
                             .then(response => {
-                                emptyCart(() => {
+                                cartEmpty(() => {
                                     console.log(response)
                                     setRun(!run); // run useEffect in parent Cart
                                     console.log('payment success and empty cart');
